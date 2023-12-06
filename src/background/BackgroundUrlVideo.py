@@ -1,0 +1,17 @@
+from src.background.BackgroundVideo import BackgroundVideo
+import pytube
+
+
+class BackgroundUrlVideo(BackgroundVideo):
+
+    def __init__(self, url, folder, name):
+        super().__init__(folder, name)
+        self.url = url
+
+    def download(self):  # TODO fix this
+        yt_video = pytube.YouTube(self.url)
+        stream_query = yt_video.streams.filter(type="video", progressive=False).order_by('resolution').desc()
+        print(stream_query.first())
+        stream = stream_query.first() if stream_query.first().resolution == "1080p" else stream_query.filter(
+            res="1080p").first()
+        stream.download(self.folder, self.name, None, False)
