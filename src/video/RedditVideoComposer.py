@@ -10,48 +10,47 @@ from moviepy.video.io.VideoFileClip import VideoFileClip
 from src.screenshot.RedditScreenshot import RedditScreenshot
 from src.tts.TextToSpeech import TextToSpeech
 
+marginSize = 80
+maxCommentLength = 100
+
 
 class RedditVideoComposer:
 
-    def __init__(self, post, comments, maxDuration=45):
+    def __init__(self, post, comments, maxDuration=58):
         self.post = post
         self.comments = comments
-        self.maxDuration = maxDuration
-        self.marginSize = 80
-        self.postDuration = 0
         self.commentsUsed = []
         self.currentDuration = 0
+        self.maxDuration = maxDuration
 
     def createTextToSpeech(self):
-        self.postDuration = TextToSpeech("tts/reddit_ask",
-                                         {"type": "post", "id": self.post.id,
-                                          "text": self.post.title}).getDuration()
-        self.currentDuration += self.postDuration
+        self.post.setDuration(TextToSpeech(self.post).getDuration())
+        self.currentDuration += self.post.tts_duration
 
         for comment in self.comments:
-            duration = TextToSpeech("tts/reddit_ask",
-                                    {"type": "comment", "id": comment.id,
-                                     "text": comment.body}).getDuration()
+            if not isCommentValid(comment):
+                continue
+            duration = TextToSpeech(comment).getDuration()
             if self.currentDuration + duration > self.maxDuration:
                 break
+            comment.setDuration(duration)
             self.currentDuration += duration
-            self.commentsUsed.append({"comment": comment, "duration": duration})
+            self.commentsUsed.append(comment)
 
     def screenshotPost(self):
-        RedditScreenshot(self.post.url, post_id=self.post.id, comments=[comment["comment"]
-                                                                        for comment in self.commentsUsed])
+        RedditScreenshot(self.post, self.commentsUsed)
 
     def composeVideo(self):
         print("Creating clips for each comment...")
 
         clips = [createClip("screenshots/reddit_ask/post-" + self.post.id + ".png",
                             AudioFileClip("tts/reddit_ask/post-" + self.post.id + ".mp3"),
-                            self.postDuration, self.marginSize)]
+                            self.post.tts_duration, marginSize)]
 
         for comment in self.commentsUsed:
-            clips.append(createClip("screenshots/reddit_ask/comment-" + comment['comment'].id + ".png",
-                                    AudioFileClip("tts/reddit_ask/comment-" + comment['comment'].id + ".mp3"),
-                                    comment['duration'], self.marginSize))
+            clips.append(createClip(comment.screenshot,
+                                    AudioFileClip(comment.tts),
+                                    comment.tts_duration, marginSize))
 
         content_overlay = concatenate_videoclips(clips).set_position(("center", "center"))
 
@@ -59,12 +58,12 @@ class RedditVideoComposer:
         final = CompositeVideoClip(
             clips=[background_video, content_overlay],
             size=background_video.size).set_audio(content_overlay.audio)
-        final.duration = self.currentDuration
+        final.tts_duration = self.currentDuration
         final.set_fps(background_video.fps)
 
         print("Rendering final video...")
         bitrate = "8000k"
-        threads = "12"
+        threads = "24"
         outputFile = f"final_videos/reddit_ask/" + self.post.id + ".mp4"
         final.write_videofile(
             outputFile,
@@ -85,12 +84,20 @@ class RedditVideoComposer:
         return backgroundVideo.subclip(start, end)
 
 
-def createClip(screenShotFile, audioClip, duration, marginSize):
+def isCommentValid(comment):
+    if comment.body == '[deleted]' or comment.body == '[removed]' or comment.body == '':
+        return False
+    if len(comment.body) > maxCommentLength:
+        return False
+    return True
+
+
+def createClip(screenShotFile, audioClip, duration, margin_size):
     imageClip = ImageClip(
         screenShotFile,
         duration=duration,
     ).set_position(("center", "center"))
-    imageClip = imageClip.resize(width=(1080 - marginSize))
+    imageClip = imageClip.resize(width=(1080 - margin_size))
     videoClip = imageClip.set_audio(audioClip)
     videoClip.fps = 1
     return videoClip

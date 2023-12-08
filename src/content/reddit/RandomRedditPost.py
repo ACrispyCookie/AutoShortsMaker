@@ -22,7 +22,7 @@ class RandomDailyRedditPost:
         random_index = random.randint(0, len(top_posts) - 1)
         while ((top_posts[random_index].over_18 and self.exclude_posts)
                or top_posts[random_index].id in self.exclude_posts):
-            random_index = random.randint(0, self.limit)
+            random_index = random.randint(0, len(top_posts) - 1)
 
         return top_posts[random_index]
 

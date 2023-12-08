@@ -4,15 +4,15 @@ from moviepy.audio.io.AudioFileClip import AudioFileClip
 
 class TextToSpeech:
 
-    def __init__(self, save_path, element=None):
+    def __init__(self, element=None):
         self.engine = engine_init()
-        self.save_path = save_path
+        self.save_path = element.tts
         self.element = element
-        self.engine.save_to_file(element['text'], save_path + "/" + element['type'] + "-" + element['id'] + ".mp3")
+        self.engine.save_to_file(element.body, self.save_path)
         self.engine.runAndWait()
 
     def getDuration(self):
-        file_path = self.save_path + "/" + self.element['type'] + "-" + self.element['id'] + ".mp3"
+        file_path = self.save_path
         return AudioFileClip(file_path).duration
 
 

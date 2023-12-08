@@ -9,12 +9,14 @@ screenHeight = 800
 
 class RedditScreenshot:
 
-    def __init__(self, url, post_id=None, comments=None):
-        self.url = url
-        self.post_id = post_id
+    def __init__(self, post, comments):
+        self.post = post
         self.comments = comments
+        print("Comments: " + str(len(comments)))
+        for comment in comments:
+            print(comment.id)
         self.driver, self.wait = self.setupDriver()
-        if self.post_id is not None:
+        if self.post is not None:
             self.screenshotPost()
         if self.comments is not None:
             self.screenshotComments()
@@ -24,7 +26,7 @@ class RedditScreenshot:
         search = self.wait.until(EC.presence_of_element_located((By.TAG_NAME, "shreddit-post")))
         self.driver.execute_script("window.focus();")
 
-        file_name = f"screenshots/reddit_ask/post-{self.post_id}.png"
+        file_name = f"screenshots/reddit_ask/post-{self.post.id}.png"
         fp = open(file_name, "wb")
         fp.write(search.screenshot_as_png)
         fp.close()
@@ -43,10 +45,11 @@ class RedditScreenshot:
     def setupDriver(self):
         options = webdriver.ChromeOptions()
         options.headless = False
+        #options.add_argument(f'--proxy-server=195.114.209.50')
         driver = webdriver.Chrome(options=options)
         wait = WebDriverWait(driver, 10)
 
         driver.set_window_size(width=screenWidth, height=screenHeight)
-        driver.get(self.url)
+        driver.get(self.post.url)
 
         return driver, wait

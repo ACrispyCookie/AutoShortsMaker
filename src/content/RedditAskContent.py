@@ -3,6 +3,9 @@ from src.content.Content import Content
 from src.background.BackgroundUrlVideo import BackgroundUrlVideo
 from src.background.BackgroundVideo import cropBackgroundVideo
 from src.content.reddit.RandomRedditPost import RandomDailyRedditPost
+from src.content.reddit.RedditComment import RedditComment
+from src.content.reddit.RedditPost import RedditPost
+from src.tts.TextToSpeech import TextToSpeech
 from src.video.RedditVideoComposer import RedditVideoComposer
 
 
@@ -23,13 +26,14 @@ class RedditAskContent(Content):
         cropBackgroundVideos()
 
         print("Getting a random post...")
-        self.post = self.getRandomPost()
-        self.comments = self.post.comments
+        random_post = self.getRandomPost()
+        self.post = RedditPost(random_post.id, random_post.title, random_post.url)
+        self.comments = [RedditComment(comment.id, comment.body) for comment in random_post.comments[:-1]]
         self.data["posts"].append(self.post.id)
         self.saveData()
 
         self.composer = RedditVideoComposer(self.post, self.comments)
-        print("Creating text to speech audio...")
+        print("Picking comments to use and creating text to speech...")
         self.composer.createTextToSpeech()
 
         print("Screenshotting post...")

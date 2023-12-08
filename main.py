@@ -1,10 +1,13 @@
 import json
+import os
 import sys
 from src.content.JASContent import JASContent
 from src.content.RedditAskContent import RedditAskContent
 
 
 def main():
+    print("Clearing data...")
+    clearData()
     print("Starting shorts maker...")
     choice = sys.argv[1]
     config = getConfig("config.json")
@@ -20,6 +23,16 @@ def main():
     else:
         print("Usage: python main.py [REDDIT_ASK|JAS]")
     print("Video creation complete!")
+
+
+def clearData():
+    with open("./data/data.json", "w") as f:
+        json.dump({"REDDIT_ASK": {"posts": []}, "JAS": {}}, f, indent=4)
+
+    for file in os.listdir("tts/reddit_ask"):
+        os.remove("tts/reddit_ask/" + file)
+    for file in os.listdir("screenshots/reddit_ask"):
+        os.remove("screenshots/reddit_ask/" + file)
 
 
 def getConfig(file):
