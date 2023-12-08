@@ -5,7 +5,7 @@ import praw
 
 class RandomDailyRedditPost:
 
-    def __init__(self, credentials, subreddit, top_limit=100, exclude_nsfw=True, exclude_posts=None):
+    def __init__(self, credentials, subreddit, top_limit=10, exclude_nsfw=True, exclude_posts=None):
         if exclude_posts is None:
             exclude_posts = []
         self.credentials = credentials
