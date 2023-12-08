@@ -31,7 +31,8 @@ class RedditScreenshot:
 
     def screenshotComments(self):
         for comment in self.comments:
-            search = self.wait.until(EC.presence_of_element_located((By.XPATH, f'//shreddit-comment[@thingid="t1_{comment.id}"]')))
+            search = self.wait.until(
+                EC.presence_of_element_located((By.XPATH, f'//shreddit-comment[@thingid="t1_{comment.id}"]')))
             self.driver.execute_script("window.focus();")
 
             file_name = f"screenshots/reddit_ask/comment-{comment.id}.png"

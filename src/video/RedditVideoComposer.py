@@ -45,7 +45,8 @@ class RedditVideoComposer:
         print("Creating clips for each comment...")
 
         clips = [createClip("screenshots/reddit_ask/post-" + self.post.id + ".png",
-                            AudioFileClip("tts/reddit_ask/post-" + self.post.id + ".mp3"), self.postDuration, self.marginSize)]
+                            AudioFileClip("tts/reddit_ask/post-" + self.post.id + ".mp3"),
+                            self.postDuration, self.marginSize)]
 
         for comment in self.commentsUsed:
             clips.append(createClip("screenshots/reddit_ask/comment-" + comment['comment'].id + ".png",

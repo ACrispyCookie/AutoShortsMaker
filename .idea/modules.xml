@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ShortsMakerPy.iml" filepath="$PROJECT_DIR$/.idea/ShortsMakerPy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/AutoShortsMaker.iml" filepath="$PROJECT_DIR$/.idea/AutoShortsMaker.iml" />
     </modules>
   </component>
 </project>
