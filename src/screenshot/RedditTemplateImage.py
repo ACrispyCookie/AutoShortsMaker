@@ -36,10 +36,12 @@ class RedditTemplateImage:
         header = Image.open(template + "-header.png").convert("RGBA")
         line = Image.open(template + "-line.png").convert("RGBA")
         footer = Image.open(template + "-footer.png").convert("RGBA")
-        height = len(lines) * (34 if self.content.type == 'post' else 24) + 56 if self.content.type == 'post' else 65
+        header_height = 56 if self.content.type == 'post' else 43
+        body_height = len(lines) * (34 if self.content.type == 'post' else 24)
+        footer_height = 40 if self.content.type == 'post' else 65
 
         username = self.getRandomUsername()
-        image = Image.new("RGB", (483, height), (0, 0, 0))
+        image = Image.new("RGB", (483, header_height + body_height + footer_height), (0, 0, 0))
         image.paste(header, (0, 0), header)
         draw = ImageDraw.Draw(image)
 
@@ -57,11 +59,11 @@ class RedditTemplateImage:
         # Draw body
         font = ImageFont.truetype(properties["body"]["path"], properties["body"]["size"])
         for i in range(len(lines)):
+            image.paste(line, (0, header_height + i * 34), line)
             draw.text((pos["body"][0], pos["body"][1] + i * 34), lines[i], font=font, fill=properties["body"]["fill"])
-            image.paste(line, (0, 34 + i * 34), line)
 
         # Draw footer
-        image.paste(footer, (0, len(lines) * 34), footer)
+        image.paste(footer, (0, header_height + body_height), footer)
 
         image.save(self.content.screenshot)
 
