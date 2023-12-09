@@ -3,3 +3,4 @@ moviepy~=1.0.3
 praw~=7.7.1
 pytube~=15.0.0
 selenium~=4.16.0
+Pillow~=10.1.0

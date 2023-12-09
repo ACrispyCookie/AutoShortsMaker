@@ -45,7 +45,8 @@ class RedditScreenshot:
     def setupDriver(self):
         options = webdriver.ChromeOptions()
         options.headless = False
-        #options.add_argument(f'--proxy-server=195.114.209.50')
+        proxy_server = "103.21.244.18:80"
+        #options.add_argument(f'--proxy-server={proxy_server}')
         driver = webdriver.Chrome(options=options)
         wait = WebDriverWait(driver, 10)
 

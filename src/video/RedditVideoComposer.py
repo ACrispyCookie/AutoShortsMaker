@@ -8,6 +8,7 @@ from moviepy.video.compositing.concatenate import concatenate_videoclips
 from moviepy.video.io.VideoFileClip import VideoFileClip
 
 from src.screenshot.RedditScreenshot import RedditScreenshot
+from src.screenshot.RedditTemplateImage import RedditTemplateImage
 from src.tts.TextToSpeech import TextToSpeech
 
 marginSize = 80
@@ -38,7 +39,9 @@ class RedditVideoComposer:
             self.commentsUsed.append(comment)
 
     def screenshotPost(self):
-        RedditScreenshot(self.post, self.commentsUsed)
+        RedditTemplateImage(self.post).create()
+        for comment in self.commentsUsed:
+            RedditTemplateImage(comment).create()
 
     def composeVideo(self):
         print("Creating clips for each comment...")

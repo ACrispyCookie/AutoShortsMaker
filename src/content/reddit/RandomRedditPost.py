@@ -1,5 +1,3 @@
-import random
-
 import praw
 
 
@@ -19,12 +17,12 @@ class RandomDailyRedditPost:
         reddit = self.getReddit()
         top_posts = list(reddit.subreddit(self.subreddit).top(time_filter="day", limit=self.limit))
 
-        random_index = random.randint(0, len(top_posts) - 1)
-        while ((top_posts[random_index].over_18 and self.exclude_posts)
-               or top_posts[random_index].id in self.exclude_posts):
-            random_index = random.randint(0, len(top_posts) - 1)
+        index = 0
+        while ((top_posts[index].over_18 and self.exclude_posts)
+               or top_posts[index].id in self.exclude_posts):
+            index += 1
 
-        return top_posts[random_index]
+        return top_posts[index]
 
     def getReddit(self):
         return praw.Reddit(
