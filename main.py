@@ -6,12 +6,12 @@ from src.content.RedditAskContent import RedditAskContent
 
 
 def main():
-    print("Clearing data...")
-    clearData()
     print("Starting shorts maker...")
     choice = sys.argv[1]
-    config = getConfig("config.json")
-    data = getConfig("data.json")
+    config = getConfig("data/config.json")
+    createDataFile(config["data_path"])
+
+    data = getConfig(config["data_path"])
     if choice == 'REDDIT_ASK':
         print("Mode: RedditAsk")
         print("Starting process of creating RedditAsk video...")
@@ -25,18 +25,14 @@ def main():
     print("Video creation complete!")
 
 
-def clearData():
-    with open("./data/data.json", "w") as f:
-        json.dump({"REDDIT_ASK": {"posts": []}, "JAS": {}}, f, indent=4)
-
-    for file in os.listdir("tts/reddit_ask"):
-        os.remove("tts/reddit_ask/" + file)
-    for file in os.listdir("screenshots/reddit_ask"):
-        os.remove("screenshots/reddit_ask/" + file)
+def createDataFile(file_path):
+    if not os.path.exists(file_path):
+        f = open(file_path, 'w')
+        f.write(json.dumps({"REDDIT_ASK": {}, "JAS": {}}))
 
 
 def getConfig(file):
-    with open("./data/" + file, "r") as f:
+    with open(file, "r") as f:
         config = json.load(f)
         return config
 

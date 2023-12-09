@@ -1,12 +1,10 @@
-import os
 from src.content.Content import Content
-from src.background.BackgroundUrlVideo import BackgroundUrlVideo
-from src.background.BackgroundVideo import cropBackgroundVideo
-from src.content.reddit.RandomRedditPost import RandomDailyRedditPost
-from src.content.reddit.RedditComment import RedditComment
-from src.content.reddit.RedditPost import RedditPost
-from src.tts.TextToSpeech import TextToSpeech
-from src.video.RedditVideoComposer import RedditVideoComposer
+import src.content.reddit_ask.background.BackgroundVideoManager as BVM
+from src.content.reddit_ask.PostFinder import PostFinder
+from src.content.reddit_ask.images.RedditTemplate import RedditTemplate
+from src.content.reddit_ask.images.RedditScreenshot import RedditScreenshot
+from src.content.reddit_ask.tts.SimpleTTS import SimpleTTS
+from src.content.reddit_ask.video.RedditVideoComposer import RedditVideoComposer
 
 
 class RedditAskContent(Content):
@@ -15,60 +13,53 @@ class RedditAskContent(Content):
         super().__init__("REDDIT_ASK", config, data)
         self.post = None
         self.comments = []
-        self.composer = None
+        self.duration = 0
+
+        self.subreddit = self.config["settings"]["subreddit"]
+        self.max_duration = self.config["settings"]["max_duration"]
+        self.max_comment_length = self.config["settings"]["max_comment_length"]
+        self.image_mode = self.config["settings"]["image_mode"]
+        self.tts_mode = self.config["settings"]["tts_mode"]
 
     def create(self):
         if self.config["download_background"]["enabled"]:
             print("Downloading background videos...")
-            self.downloadBackgroundVideos()
+            BVM.downloadBackgroundVideos(self.config["download_background"]["url"],
+                                         self.config["download_background"]["playlist"],
+                                         self.dirs["background_videos"])
 
         print("Resizing background videos...")
-        cropBackgroundVideos()
+        BVM.cropBackgroundVideos(self.dirs["background_videos"])
 
         print("Getting a random post...")
-        random_post = self.getRandomPost()
-        self.post = RedditPost(random_post.id, random_post.title, random_post.url)
-        self.comments = [RedditComment(comment.id, comment.body) for comment in random_post.comments[:-1]]
-        self.data["posts"].append(self.post.id)
-        self.saveData()
+        (self.post,
+         self.comments,
+         self.duration) = (
+            PostFinder(credentials=self.getCredentials(), subreddit=self.subreddit, exclude_posts=self.data["posts"])
+            .get(self.max_duration, self.max_comment_length, self.tts_mode, self.dirs["images"], self.dirs["tts"]))
 
-        self.composer = RedditVideoComposer(self.post, self.comments)
-        print("Picking comments to use and creating text to speech...")
-        self.composer.createTextToSpeech()
+        if "posts" in self.data.keys():
+            self.data["posts"].append(self.post.id)
+        else:
+            self.data["posts"] = [self.post.id]
+
+        self.save_data()
 
         print("Screenshotting post...")
-        self.composer.screenshotPost()
+        if self.image_mode == "screenshot":
+            RedditScreenshot(self.post).create()
+            for comment in self.comments:
+                RedditScreenshot(comment).create()
+        else:
+            RedditTemplate(self.post).create()
+            for comment in self.comments:
+                RedditTemplate(comment).create()
 
         print("Composing video...")
-        self.composer.composeVideo()
+        (RedditVideoComposer(self.post, self.comments, self.duration,
+                             self.dirs["background_videos"], self.dirs["final_videos"])
+         .composeVideo(self.config["settings"]["video"]["bitrate"], self.config["settings"]["video"]["threads"]))
 
-    def downloadBackgroundVideos(self, folder="background_videos/reddit_ask"):
-        url = self.config["download_background"]["url"]
-        playlist = self.config["download_background"]["playlist"]
-
-        BackgroundUrlVideo(url=url, playlist=playlist,
-                           folder=folder, name=getFirstVideoName()).download()
-
-    def getRandomPost(self):
-        return RandomDailyRedditPost(
-            {"client_id": self.config["client_id"], "client_secret": self.config["client_secret"],
-             "user_agent": self.config["user_agent"]}, self.config["subreddit"],
-            exclude_posts=self.data["posts"]).get()
-
-
-def cropBackgroundVideos(folder="background_videos/reddit_ask"):
-    for file in os.listdir(folder):
-        if file.endswith(".webm"):
-            cropBackgroundVideo(folder + "/" + file,
-                                folder + "/" + file.removesuffix(".webm") + "_final.webm")
-            if os.path.exists(folder + "/" + file.removesuffix(".webm") + "_final.webm"):
-                os.rename(folder + "/" + file.removesuffix(".webm") + "_final.webm", folder + "/" + file)
-
-
-def getFirstVideoName(folder="background_videos/reddit_ask"):
-    name = "video_0"
-    if not os.path.exists(folder):
-        os.mkdir(folder)
-    else:
-        name = name.removesuffix("0") + str(len(os.listdir(folder)))
-    return name
+    def getCredentials(self):
+        return {"client_id": self.config["client_id"], "client_secret": self.config["client_secret"],
+                "user_agent": self.config["user_agent"]}

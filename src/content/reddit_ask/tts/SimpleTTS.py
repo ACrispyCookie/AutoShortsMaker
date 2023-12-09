@@ -1,18 +1,22 @@
 import pyttsx3
 from moviepy.audio.io.AudioFileClip import AudioFileClip
 
+from src.content.reddit_ask.tts.TextToSpeech import TextToSpeech
 
-class TextToSpeech:
 
-    def __init__(self, element=None):
+class SimpleTTS(TextToSpeech):
+
+    def __init__(self, reddit_content):
+        super().__init__(reddit_content)
         self.engine = engine_init()
-        self.save_path = element.tts
-        self.element = element
-        self.engine.save_to_file(element.body, self.save_path)
+        self.engine.save_to_file(self.content.body, self.content.tts)
+
+    def create(self):
         self.engine.runAndWait()
+        return self
 
     def getDuration(self):
-        file_path = self.save_path
+        file_path = self.content.tts
         return AudioFileClip(file_path).duration
 
 

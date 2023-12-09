@@ -1,8 +1,8 @@
-from src.background.BackgroundVideo import BackgroundVideo
+from src.content.reddit_ask.background.VideoDownloader import VideoDownloader
 import pytube
 
 
-class BackgroundUrlVideo(BackgroundVideo):
+class UrlVideoDownloader(VideoDownloader):
 
     def __init__(self, url, playlist, folder, name):
         super().__init__(folder, name)

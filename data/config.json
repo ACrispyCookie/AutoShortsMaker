@@ -1,0 +1,31 @@
+{
+    "data_path": "data/data.json",
+    "REDDIT_ASK": {
+        "dirs": {
+            "images": "data/reddit_ask/images/",
+            "tts": "data/reddit_ask/tts/",
+            "background_videos": "data/background_videos/",
+            "templates": "data/reddit_ask/templates/",
+            "final_videos": "final_videos/reddit_ask/"
+        },
+        "download_background": {
+            "enabled": false,
+            "playlist": true,
+            "url": ""
+        },
+        "settings": {
+            "max_duration": 58,
+            "max_comment_length": 80,
+            "image_mode": "template",
+            "tts_mode": "simple",
+            "subreddit": "askreddit",
+            "video": {
+                "bitrate": "16000k",
+                "threads": "24"
+            }
+        },
+        "client_id": "",
+        "client_secret": "",
+        "user_agent": "Windows11:TestApp:v1 by ACrispyCookie"
+    }
+}
