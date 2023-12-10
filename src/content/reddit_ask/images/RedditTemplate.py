@@ -18,9 +18,9 @@ post_properties = {"username": {"size": 14, "fill": (184, 197, 201), "path": fon
                    "body": {"size": 28, "fill": (242, 242, 242), "path": font_path_bold}}
 comment_pos = {"username": (70, 25), "body": (68, 60)}
 comment_properties = {"username": {"size": 13, "fill": (242, 242, 242), "path": font_path_bold},
-                      "body": {"size": 14, "fill": (242, 242, 242), "path": font_path}}
+                      "body": {"size": 16, "fill": (242, 242, 242), "path": font_path}}
 
-width = 500
+width = 300
 post_height = {"header": 68, "footer": 100, "line": 43}
 comment_height = {"header": 59, "footer": 90, "line": 25}
 
@@ -38,7 +38,7 @@ class RedditTemplate(RedditImage):
             post_height if self.content.type == "post" else comment_height)
 
     def create(self):
-        max_line_length = width - self.pos["body"][0] - 100
+        max_line_length = width - self.pos["body"][0] - 25
         lines = splitText(self.content.body, ImageFont.truetype(self.properties["body"]["path"],
                                                                 self.properties["body"]["size"]), max_line_length)
 
@@ -48,7 +48,7 @@ class RedditTemplate(RedditImage):
 
         header_height = self.height["header"]
         body_height = len(lines) * self.height["line"]
-        footer_height = self.height["footer"]
+        footer_height = 0  # self.height["footer"]
 
         draw, image, font, length = self.drawUsername(header_height + body_height + footer_height, header,
                                                       self.properties, self.pos)
@@ -62,7 +62,7 @@ class RedditTemplate(RedditImage):
         self.drawBody(image, self.pos, header_height, line, lines, self.properties)
 
         # Draw footer
-        image.paste(footer, (0, header_height + body_height), footer)
+        # image.paste(footer, (0, header_height + body_height), footer)
 
         image.save(self.content.image)
 
@@ -110,7 +110,6 @@ def splitText(text, font, max_line_length):
     words = text.split(" ")
     for word in words:
         word_length = draw.textlength(word, font=font)
-        print("Word: " + word + " Line: " + line + " Length: " + str(line_length) + " Width: " + str(word_length))
         if word_length + line_length > max_line_length:
             lines.append(line)
             line = ""
