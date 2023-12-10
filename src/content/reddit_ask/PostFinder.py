@@ -30,10 +30,12 @@ class PostFinder:
         wrapped_post = RedditPost(post.id, post.title, post.author, post.url, images_path, tts_path)
         wrapped_comments = []
         for comment in post.comments[:-1]:
+            if not isCommentValid(comment, max_comment_length):
+                continue
             wrapped_comments.append(RedditComment(comment.id, comment.body, comment.author,
                                                   post.url, images_path, tts_path))
         used_comments, duration = getUsedComments(wrapped_post, wrapped_comments, max_duration,
-                                                  max_comment_length, tts_type)
+                                                  tts_type)
         return wrapped_post, used_comments, duration
 
     def getReddit(self):
@@ -44,7 +46,7 @@ class PostFinder:
         )
 
 
-def getUsedComments(post, comments, max_duration, max_comment_length, tts_type):
+def getUsedComments(post, comments, max_duration, tts_type):
     currentDuration = 0
     usedComments = []
 
@@ -54,8 +56,6 @@ def getUsedComments(post, comments, max_duration, max_comment_length, tts_type):
     currentDuration += post.tts_duration
 
     for comment in comments:
-        if not isCommentValid(comment, max_comment_length):
-            continue
         duration = SimpleTTS(comment).create().getDuration() if tts_type == "simple" else 0  # TODO fix ai tts
         if currentDuration + duration > max_duration:
             break
