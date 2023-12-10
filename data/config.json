@@ -15,7 +15,7 @@
         },
         "settings": {
             "max_duration": 58,
-            "max_comment_length": 80,
+            "max_comment_length": 150,
             "image_mode": "template",
             "tts_mode": "simple",
             "subreddit": "askreddit",

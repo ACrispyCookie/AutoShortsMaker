@@ -7,8 +7,7 @@ from moviepy.video.compositing.CompositeVideoClip import CompositeVideoClip
 from moviepy.video.compositing.concatenate import concatenate_videoclips
 from moviepy.video.io.VideoFileClip import VideoFileClip
 
-marginSize = 80
-maxCommentLength = 100
+marginSize = 150
 
 
 class RedditVideoComposer:

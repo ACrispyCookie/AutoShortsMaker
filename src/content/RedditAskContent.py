@@ -35,7 +35,8 @@ class RedditAskContent(Content):
         (self.post,
          self.comments,
          self.duration) = (
-            PostFinder(credentials=self.getCredentials(), subreddit=self.subreddit, exclude_posts=self.data["posts"])
+            PostFinder(credentials=self.getCredentials(), subreddit=self.subreddit,
+                       exclude_posts=(self.data["posts"] if "posts" in self.data.keys() else []))
             .get(self.max_duration, self.max_comment_length, self.tts_mode, self.dirs["images"], self.dirs["tts"]))
 
         if "posts" in self.data.keys():
