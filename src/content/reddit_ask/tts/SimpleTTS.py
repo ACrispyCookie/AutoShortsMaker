@@ -1,5 +1,4 @@
 import pyttsx3
-from moviepy.audio.io.AudioFileClip import AudioFileClip
 
 from src.content.reddit_ask.tts.TextToSpeech import TextToSpeech
 
@@ -14,10 +13,6 @@ class SimpleTTS(TextToSpeech):
     def create(self):
         self.engine.runAndWait()
         return self
-
-    def getDuration(self):
-        file_path = self.content.tts
-        return AudioFileClip(file_path).duration
 
 
 def engine_init():

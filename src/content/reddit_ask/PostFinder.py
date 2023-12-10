@@ -1,6 +1,7 @@
 import praw
 
 from src.content.reddit_ask.tts.SimpleTTS import SimpleTTS
+from src.content.reddit_ask.tts.TrainedTTS import TrainedTTS
 from src.content.reddit_ask.wrappers.RedditComment import RedditComment
 from src.content.reddit_ask.wrappers.RedditPost import RedditPost
 
@@ -51,12 +52,14 @@ def getUsedComments(post, comments, max_duration, tts_type):
     usedComments = []
 
     print("Creating text-to-speech files...")
-    duration = SimpleTTS(post).create().getDuration() if tts_type == "simple" else 0  # TODO fix ai tts
+    tts = SimpleTTS(post) if tts_type == "simple" else TrainedTTS(post)
+    duration = tts.create().getDuration()
     post.setDuration(duration)
     currentDuration += post.tts_duration
 
     for comment in comments:
-        duration = SimpleTTS(comment).create().getDuration() if tts_type == "simple" else 0  # TODO fix ai tts
+        tts = SimpleTTS(comment) if tts_type == "simple" else TrainedTTS(comment)
+        duration = tts.create().getDuration()
         if currentDuration + duration > max_duration:
             break
         comment.setDuration(duration)
