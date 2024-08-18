@@ -7,24 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d3141eb-db31-4e79-8f3a-1d38117d6fad" name="Changes" comment="Fix image template">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/Content.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/Content.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/background/QueryVideoDownloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/background/QueryVideoDownloader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/background/UrlVideoDownloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/background/UrlVideoDownloader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/background/VideoDownloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/background/VideoDownloader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/tts/ElevenLabsTTS.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/tts/ElevenLabsTTS.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/tts/SimpleTTS.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/tts/SimpleTTS.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/tts/TextToSpeech.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/tts/TextToSpeech.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/types/reddit_ask/RedditAskContent.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/RedditAskContent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/types/reddit_ask/images/RedditImage.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/images/RedditImage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/types/reddit_ask/images/RedditScreenshot.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/images/RedditScreenshot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/types/reddit_ask/images/RedditTemplate.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/images/RedditTemplate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/types/reddit_ask/video/RedditVideoComposer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/video/RedditVideoComposer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/types/reddit_ask/wrappers/RedditContent.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/wrappers/RedditContent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="7d3141eb-db31-4e79-8f3a-1d38117d6fad" name="Changes" comment="More refactoring" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -171,7 +154,7 @@
       <workItem from="1702226952705" duration="2223000" />
       <workItem from="1702245731675" duration="1403000" />
       <workItem from="1723993708035" duration="959000" />
-      <workItem from="1724020832905" duration="3292000" />
+      <workItem from="1724020832905" duration="3584000" />
     </task>
     <task id="LOCAL-00001" summary="Fix out of range index">
       <option name="closed" value="true" />
@@ -197,7 +180,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702241420502</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="More refactoring">
+      <option name="closed" value="true" />
+      <created>1724025050909</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1724025050909</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,11 +198,12 @@
     <MESSAGE value="Fix out of range index" />
     <MESSAGE value="Create wrappers for RedditPost.py and RedditComment.py" />
     <MESSAGE value="Fix image template" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix image template" />
+    <MESSAGE value="More refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="More refactoring" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/AutoShortsMaker$main.coverage" NAME="main Coverage Results" MODIFIED="1702018750171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/AutoShortsMaker$RandomRedditPost.coverage" NAME="RandomRedditPost Coverage Results" MODIFIED="1702018740826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/content/reddit" />
-    <SUITE FILE_PATH="coverage/AutoShortsMaker$main_py.coverage" NAME="main.py Coverage Results" MODIFIED="1723997318043" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/AutoShortsMaker$main_py.coverage" NAME="main.py Coverage Results" MODIFIED="1724025077477" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

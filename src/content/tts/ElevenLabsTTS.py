@@ -1,5 +1,4 @@
 import pyttsx3
-import requests
 from pyttsx3 import Engine
 
 from src.content.tts.TextToSpeech import TextToSpeech

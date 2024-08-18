@@ -1,4 +1,3 @@
-import array
 from typing import Dict, List, Tuple
 
 import praw

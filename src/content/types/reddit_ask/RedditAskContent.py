@@ -1,4 +1,4 @@
-from typing import Dict, Any, List, Tuple
+from typing import Dict, Any, List
 
 from content.Content import ContentType
 from content.tts.TextToSpeech import TTSType

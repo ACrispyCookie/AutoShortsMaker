@@ -1,5 +1,4 @@
 from typing import Tuple, BinaryIO
-from webbrowser import Chrome
 
 import selenium.webdriver as webdriver
 from selenium.webdriver.chrome.options import Options
