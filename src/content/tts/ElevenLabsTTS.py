@@ -8,7 +8,7 @@ class SimpleTTS(TextToSpeech):
 
     def __init__(self, content: str, filename: str):
         super().__init__(content, filename)
-        self.engine = engine_init()
+        self.engine: Engine = engine_init()
         self.engine.save_to_file(self.content, self.filename)
 
     def create(self):
@@ -17,7 +17,7 @@ class SimpleTTS(TextToSpeech):
 
 
 def engine_init() -> Engine:
-    engine = pyttsx3.init()
+    engine: Engine = pyttsx3.init()
     engine.setProperty('rate', 150)
     engine.setProperty('volume', 1.0)
     engine.setProperty('voice', 'english+f3')

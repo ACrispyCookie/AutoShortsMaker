@@ -3,9 +3,9 @@ from abc import ABC, abstractmethod
 
 class VideoDownloader(ABC):
 
-    def __init__(self, folder, name):
-        self.folder = folder
-        self.name = name
+    def __init__(self, folder: str, name: str):
+        self.folder: str = folder
+        self.name: str = name
 
     @abstractmethod
     def download(self):

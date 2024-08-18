@@ -1,4 +1,9 @@
+from typing import Tuple, BinaryIO
+from webbrowser import Chrome
+
 import selenium.webdriver as webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
@@ -13,39 +18,39 @@ class RedditScreenshot(RedditImage):
 
     def __init__(self, reddit_content):
         super().__init__(reddit_content)
-        self.driver, self.wait = self.setupDriver()
+        self.driver, self.wait = self.setup_driver()
 
     def create(self):
         if self.content.type == "post":
-            self.screenshotPost()
+            self.screenshot_post()
         else:
-            self.screenshotComment()
+            self.screenshot_comment()
         self.driver.quit()
 
-    def screenshotPost(self):
+    def screenshot_post(self):
         search = self.wait.until(EC.presence_of_element_located((By.TAG_NAME, "shreddit-post")))
         self.driver.execute_script("window.focus();")
 
-        file_name = self.content.image
-        fp = open(file_name, "wb")
+        file_name: str = self.content.image
+        fp: BinaryIO = open(file_name, "wb")
         fp.write(search.screenshot_as_png)
         fp.close()
 
-    def screenshotComment(self):
+    def screenshot_comment(self):
         search = self.wait.until(
             EC.presence_of_element_located((By.XPATH, f'//shreddit-comment[@thingid="t1_{self.content.id}"]')))
         self.driver.execute_script("window.focus();")
 
-        file_name = self.content.image
-        fp = open(file_name, "wb")
+        file_name: str = self.content.image
+        fp: BinaryIO = open(file_name, "wb")
         fp.write(search.screenshot_as_png)
         fp.close()
 
-    def setupDriver(self):
-        options = webdriver.ChromeOptions()
+    def setup_driver(self) -> Tuple[WebDriver, WebDriverWait]:
+        options: Options = webdriver.ChromeOptions()
         options.headless = False
-        driver = webdriver.Chrome(options=options)
-        wait = WebDriverWait(driver, 10)
+        driver: WebDriver = webdriver.Chrome(options=options)
+        wait: WebDriverWait = WebDriverWait(driver, 10)
 
         driver.set_window_size(width=screenWidth, height=screenHeight)
         driver.get(self.content.url)

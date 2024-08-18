@@ -1,39 +1,38 @@
 import os
 import moviepy.video.fx.all as vfx
 import moviepy.editor as mp
+from moviepy.video.VideoClip import VideoClip
+
 from content.background.UrlVideoDownloader import UrlVideoDownloader
 
 
-def getFirstVideoName(folder):
-    name = "video_0"
+def get_first_video_name(folder: str) -> str:
+    name: str = "video_0"
     if not os.path.exists(folder):
         os.mkdir(folder)
     else:
-        name = name.removesuffix("0") + str(len(os.listdir(folder)))
+        name: str = name.removesuffix("0") + str(len(os.listdir(folder)))
     return name
 
 
-def downloadBackgroundVideos(url, playlist, folder):
-    url = url
-    playlist = playlist
-
+def download_background_videos(url: str, playlist: bool, folder: str):
     UrlVideoDownloader(url=url, playlist=playlist,
-                       folder=folder, name=getFirstVideoName(folder)).download()
+                       folder=folder, name=get_first_video_name(folder)).download()
 
 
-def cropBackgroundVideos(folder):
+def crop_background_videos(folder: str):
     for file in os.listdir(folder):
         if file.endswith(".webm"):
-            cropBackgroundVideo(folder + file,
-                                folder + file.removesuffix(".webm") + "_final.webm")
+            crop_background_video(folder + file,
+                                  folder + file.removesuffix(".webm") + "_final.webm")
             if os.path.exists(folder + file.removesuffix(".webm") + "_final.webm"):
                 os.rename(folder + file.removesuffix(".webm") + "_final.webm", folder + file)
 
 
-def cropBackgroundVideo(input_path, output_path):
-    clip = mp.VideoFileClip(input_path)
+def crop_background_video(input_path: str, output_path: str):
+    clip: VideoClip = mp.VideoFileClip(input_path)
     (w, h) = clip.size
-    new_width = int(h * 9 / 16)
+    new_width: int = int(h * 9 / 16)
     if new_width == w:
         clip.close()
         return
@@ -41,7 +40,7 @@ def cropBackgroundVideo(input_path, output_path):
     x1, x2 = (w - new_width) // 2, (w + new_width) // 2
     y1, y2 = 0, h
 
-    clip_cropped = vfx.crop(clip, x1=x1, x2=x2, y1=y1, y2=y2)
+    clip_cropped: VideoClip = vfx.crop(clip, x1=x1, x2=x2, y1=y1, y2=y2)
     clip_cropped.write_videofile(output_path)
     clip_cropped.close()
     clip.close()

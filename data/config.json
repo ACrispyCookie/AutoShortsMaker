@@ -1,5 +1,6 @@
 {
     "data_path": "data/data.json",
+    "secrets_path": "data/secrets.json",
     "REDDIT_ASK": {
         "dirs": {
             "images": "data/reddit_ask/images/",
@@ -23,9 +24,6 @@
                 "bitrate": "16000k",
                 "threads": "24"
             }
-        },
-        "client_id": "k8Q06WKi6uolh95OrEEaWw",
-        "client_secret": "b-xg_xULS6WGb_S2pJP_Flrf7mozfw",
-        "user_agent": "Windows11:TestApp:v1 by ACrispyCookie"
+        }
     }
 }

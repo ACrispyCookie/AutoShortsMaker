@@ -8,31 +8,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d3141eb-db31-4e79-8f3a-1d38117d6fad" name="Changes" comment="Fix image template">
-      <change afterPath="$PROJECT_DIR$/data/secrets.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/content/tts/ElevenLabsTTS.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/AutoShortsMaker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AutoShortsMaker.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/content/Content.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/Content.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/JASContent.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/RedditAskContent.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/RedditAskContent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/PostFinder.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/PostFinder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/background/BackgroundVideoManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/background/BackgroundVideoManager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/background/QueryVideoDownloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/background/QueryVideoDownloader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/background/UrlVideoDownloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/background/UrlVideoDownloader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/background/VideoDownloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/background/VideoDownloader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/images/RedditImage.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/images/RedditImage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/images/RedditScreenshot.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/images/RedditScreenshot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/images/RedditTemplate.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/images/RedditTemplate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/tts/SimpleTTS.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/tts/SimpleTTS.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/tts/TextToSpeech.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/tts/TextToSpeech.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/tts/TrainedTTS.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/video/RedditVideoComposer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/video/RedditVideoComposer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/wrappers/RedditComment.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/wrappers/RedditComment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/wrappers/RedditContent.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/wrappers/RedditContent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/wrappers/RedditPost.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/wrappers/RedditPost.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/background/QueryVideoDownloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/background/QueryVideoDownloader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/background/UrlVideoDownloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/background/UrlVideoDownloader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/background/VideoDownloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/background/VideoDownloader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/tts/ElevenLabsTTS.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/tts/ElevenLabsTTS.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/tts/SimpleTTS.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/tts/SimpleTTS.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/tts/TextToSpeech.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/tts/TextToSpeech.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/types/reddit_ask/RedditAskContent.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/RedditAskContent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/types/reddit_ask/images/RedditImage.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/images/RedditImage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/types/reddit_ask/images/RedditScreenshot.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/images/RedditScreenshot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/types/reddit_ask/images/RedditTemplate.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/images/RedditTemplate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/types/reddit_ask/video/RedditVideoComposer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/video/RedditVideoComposer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/types/reddit_ask/wrappers/RedditContent.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/wrappers/RedditContent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,18 +40,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "ACrispyCookie"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ACrispyCookie&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/ACrispyCookie/AutoShortsMaker.git",
-    "accountId": "45b43c40-79d7-49ef-af4b-870949fa9006"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ACrispyCookie/AutoShortsMaker.git&quot;,
+    &quot;accountId&quot;: &quot;45b43c40-79d7-49ef-af4b-870949fa9006&quot;
   }
-}]]></component>
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="ProjectErrors" />
   </component>
@@ -73,28 +64,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.RandomRedditPost.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.main.py.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Desktop/coding/Other projects/AutoShortsMaker",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.RandomRedditPost.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.py.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Desktop/coding/Other projects/AutoShortsMaker&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Desktop\coding\Other projects\AutoShortsMaker\src\content\types" />
@@ -180,6 +171,7 @@
       <workItem from="1702226952705" duration="2223000" />
       <workItem from="1702245731675" duration="1403000" />
       <workItem from="1723993708035" duration="959000" />
+      <workItem from="1724020832905" duration="3292000" />
     </task>
     <task id="LOCAL-00001" summary="Fix out of range index">
       <option name="closed" value="true" />

@@ -19,5 +19,5 @@ class TextToSpeech(ABC):
         raise NotImplementedError
 
     def get_duration(self) -> float:
-        file_path = self.filename
+        file_path: str = self.filename
         return AudioFileClip(file_path).duration

@@ -11,13 +11,13 @@ class ContentType(Enum):
 
 class Content:
     def __init__(self, content_type: ContentType, config: Dict[str, Any], data: Dict[str, Any], secrets: Dict[str, Any]):
-        self.type = content_type
-        self.config = config[content_type.name]
-        self.data = data[content_type.name]
-        self.secrets = secrets[content_type.name]
-        self.dirs = config[content_type.name]['dirs']
-        self.config_json = config
-        self.data_json = data
+        self.type: ContentType = content_type
+        self.config: Dict[str, Any] = config[content_type.name]
+        self.data: Dict[str, Any] = data[content_type.name]
+        self.secrets: Dict[str, Any] = secrets[content_type.name]
+        self.dirs: Dict[str, Any] = config[content_type.name]['dirs']
+        self.config_json: Dict[str, Any] = config
+        self.data_json: Dict[str, Any] = data
 
         self.create_dirs()
 
