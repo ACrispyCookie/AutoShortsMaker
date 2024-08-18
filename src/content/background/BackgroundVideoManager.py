@@ -1,7 +1,7 @@
 import os
 import moviepy.video.fx.all as vfx
 import moviepy.editor as mp
-from src.content.reddit_ask.background.UrlVideoDownloader import UrlVideoDownloader
+from content.background.UrlVideoDownloader import UrlVideoDownloader
 
 
 def getFirstVideoName(folder):

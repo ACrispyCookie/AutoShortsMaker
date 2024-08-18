@@ -3,7 +3,7 @@ import random
 from PIL import ImageDraw, ImageFont
 from PIL import Image
 
-from src.content.reddit_ask.images.RedditImage import RedditImage
+from content.types.reddit_ask.images.RedditImage import RedditImage
 
 post_template = "data/reddit_ask/templates/template-post"
 comment_template = "data/reddit_ask/templates/template-comment"

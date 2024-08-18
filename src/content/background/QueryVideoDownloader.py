@@ -1,4 +1,4 @@
-from src.content.reddit_ask.background.VideoDownloader import VideoDownloader
+from content.background.VideoDownloader import VideoDownloader
 
 
 class QueryVideoDownloader(VideoDownloader):

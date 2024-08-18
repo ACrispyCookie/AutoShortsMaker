@@ -1,16 +1,18 @@
+from typing import Dict, Any
+
+from content.Content import ContentType
 from src.content.Content import Content
-import src.content.reddit_ask.background.BackgroundVideoManager as BVM
-from src.content.reddit_ask.PostFinder import PostFinder
-from src.content.reddit_ask.images.RedditTemplate import RedditTemplate
-from src.content.reddit_ask.images.RedditScreenshot import RedditScreenshot
-from src.content.reddit_ask.tts.SimpleTTS import SimpleTTS
-from src.content.reddit_ask.video.RedditVideoComposer import RedditVideoComposer
+import content.background.BackgroundVideoManager as Bvm
+from content.types.reddit_ask.PostFinder import PostFinder
+from content.types.reddit_ask.images.RedditTemplate import RedditTemplate
+from content.types.reddit_ask.images.RedditScreenshot import RedditScreenshot
+from content.types.reddit_ask.video.RedditVideoComposer import RedditVideoComposer
 
 
 class RedditAskContent(Content):
 
-    def __init__(self, config, data):
-        super().__init__("REDDIT_ASK", config, data)
+    def __init__(self, config: Dict[str, Any], data: Dict[str, Any], secrets: Dict[str, Any]):
+        super().__init__(ContentType.REDDIT_ASK, config, data, secrets)
         self.post = None
         self.comments = []
         self.duration = 0
@@ -21,21 +23,21 @@ class RedditAskContent(Content):
         self.image_mode = self.config["settings"]["image_mode"]
         self.tts_mode = self.config["settings"]["tts_mode"]
 
-    def create(self):
+    def create(self) -> None:
         if self.config["download_background"]["enabled"]:
             print("Downloading background videos...")
-            BVM.downloadBackgroundVideos(self.config["download_background"]["url"],
+            Bvm.downloadBackgroundVideos(self.config["download_background"]["url"],
                                          self.config["download_background"]["playlist"],
                                          self.dirs["background_videos"])
 
         print("Resizing background videos...")
-        BVM.cropBackgroundVideos(self.dirs["background_videos"])
+        Bvm.cropBackgroundVideos(self.dirs["background_videos"])
 
         print("Getting a random post...")
         (self.post,
          self.comments,
          self.duration) = (
-            PostFinder(credentials=self.getCredentials(), subreddit=self.subreddit,
+            PostFinder(credentials=self.get_credentials(), subreddit=self.subreddit,
                        exclude_posts=(self.data["posts"] if "posts" in self.data.keys() else []))
             .get(self.max_duration, self.max_comment_length, self.tts_mode, self.dirs["images"], self.dirs["tts"]))
 
@@ -61,6 +63,6 @@ class RedditAskContent(Content):
                              self.dirs["background_videos"], self.dirs["final_videos"])
          .composeVideo(self.config["settings"]["video"]["bitrate"], self.config["settings"]["video"]["threads"]))
 
-    def getCredentials(self):
-        return {"client_id": self.config["client_id"], "client_secret": self.config["client_secret"],
-                "user_agent": self.config["user_agent"]}
+    def get_credentials(self) -> Dict[str, str]:
+        return {"client_id": self.secrets["reddit_client_id"], "client_secret": self.secrets["reddit_client_secret"],
+                "user_agent": self.secrets["reddit_user_agent"]}

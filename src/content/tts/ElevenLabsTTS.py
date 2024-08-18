@@ -1,21 +1,22 @@
 import pyttsx3
+import requests
+from pyttsx3 import Engine
 
-from src.content.reddit_ask.tts.TextToSpeech import TextToSpeech
-
+from src.content.tts.TextToSpeech import TextToSpeech
 
 class SimpleTTS(TextToSpeech):
 
-    def __init__(self, reddit_content):
-        super().__init__(reddit_content)
+    def __init__(self, content: str, filename: str):
+        super().__init__(content, filename)
         self.engine = engine_init()
-        self.engine.save_to_file(self.content.body, self.content.tts)
+        self.engine.save_to_file(self.content, self.filename)
 
     def create(self):
         self.engine.runAndWait()
         return self
 
 
-def engine_init():
+def engine_init() -> Engine:
     engine = pyttsx3.init()
     engine.setProperty('rate', 150)
     engine.setProperty('volume', 1.0)

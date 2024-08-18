@@ -8,15 +8,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d3141eb-db31-4e79-8f3a-1d38117d6fad" name="Changes" comment="Fix image template">
-      <change afterPath="$PROJECT_DIR$/src/content/reddit_ask/tts/TrainedTTS.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/secrets.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/content/tts/ElevenLabsTTS.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/AutoShortsMaker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AutoShortsMaker.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/PostFinder.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/reddit_ask/PostFinder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/tts/SimpleTTS.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/reddit_ask/tts/SimpleTTS.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/tts/TextToSpeech.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/reddit_ask/tts/TextToSpeech.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/Content.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/Content.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/JASContent.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/RedditAskContent.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/RedditAskContent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/PostFinder.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/PostFinder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/background/BackgroundVideoManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/background/BackgroundVideoManager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/background/QueryVideoDownloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/background/QueryVideoDownloader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/background/UrlVideoDownloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/background/UrlVideoDownloader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/background/VideoDownloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/background/VideoDownloader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/images/RedditImage.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/images/RedditImage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/images/RedditScreenshot.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/images/RedditScreenshot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/images/RedditTemplate.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/images/RedditTemplate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/tts/SimpleTTS.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/tts/SimpleTTS.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/tts/TextToSpeech.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/tts/TextToSpeech.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/tts/TrainedTTS.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/video/RedditVideoComposer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/video/RedditVideoComposer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/wrappers/RedditComment.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/wrappers/RedditComment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/wrappers/RedditContent.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/wrappers/RedditContent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/reddit_ask/wrappers/RedditPost.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/wrappers/RedditPost.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,8 +49,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "ACrispyCookie"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/ACrispyCookie/AutoShortsMaker.git",
+    "accountId": "45b43c40-79d7-49ef-af4b-870949fa9006"
+  }
+}]]></component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -54,8 +82,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/nikas/Desktop/AutoShortsMaker",
+    "last_opened_file_path": "D:/Desktop/coding/Other projects/AutoShortsMaker",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -68,11 +97,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\arisn\Desktop\AutoShortsMaker\data\background_videos" />
-      <recent name="C:\Users\arisn\Desktop\AutoShortsMaker\data" />
-      <recent name="C:\Users\arisn\Desktop\AutoShortsMaker\src\content\reddit" />
-      <recent name="C:\Users\arisn\Desktop\AutoShortsMaker\src\content\reddit\background" />
-      <recent name="C:\Users\arisn\Desktop\AutoShortsMaker\src\content\reddit\wrappers" />
+      <recent name="D:\Desktop\coding\Other projects\AutoShortsMaker\src\content\types" />
+      <recent name="D:\Desktop\coding\Other projects\AutoShortsMaker\src\content" />
+      <recent name="D:\Desktop\coding\Other projects\AutoShortsMaker\src\content\reddit_ask" />
+      <recent name="D:\Desktop\coding\Other projects\AutoShortsMaker\src" />
+      <recent name="D:\Desktop\coding\Other projects\AutoShortsMaker" />
     </key>
   </component>
   <component name="RunManager">
@@ -85,12 +114,13 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (AutoShortsMaker)" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/main.py" />
       <option name="PARAMETERS" value="REDDIT_ASK" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -126,7 +156,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-67fca87a943a-c986f194a52a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.11799.259" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-PY-242.20224.347" />
+        <option value="bundled-python-sdk-c2d6afa66fbe-39cff9de6eef-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.20224.347" />
       </set>
     </attachedChunks>
   </component>
@@ -148,6 +179,7 @@
       <workItem from="1702161875937" duration="208000" />
       <workItem from="1702226952705" duration="2223000" />
       <workItem from="1702245731675" duration="1403000" />
+      <workItem from="1723993708035" duration="959000" />
     </task>
     <task id="LOCAL-00001" summary="Fix out of range index">
       <option name="closed" value="true" />
@@ -186,8 +218,8 @@
     <option name="LAST_COMMIT_MESSAGE" value="Fix image template" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/AutoShortsMaker$main_py.coverage" NAME="main.py Coverage Results" MODIFIED="1702246751980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/AutoShortsMaker$RandomRedditPost.coverage" NAME="RandomRedditPost Coverage Results" MODIFIED="1702018740826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/content/reddit" />
     <SUITE FILE_PATH="coverage/AutoShortsMaker$main.coverage" NAME="main Coverage Results" MODIFIED="1702018750171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/AutoShortsMaker$RandomRedditPost.coverage" NAME="RandomRedditPost Coverage Results" MODIFIED="1702018740826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/content/reddit" />
+    <SUITE FILE_PATH="coverage/AutoShortsMaker$main_py.coverage" NAME="main.py Coverage Results" MODIFIED="1723997318043" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

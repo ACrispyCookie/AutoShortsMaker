@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
-from src.content.reddit_ask.images.RedditImage import RedditImage
+from content.types.reddit_ask.images.RedditImage import RedditImage
 
 screenWidth = 400
 screenHeight = 800
