@@ -1,6 +1,6 @@
 from pytube import YouTube, StreamQuery, Stream
 
-from content.background.VideoDownloader import VideoDownloader
+from tools.background.VideoDownloader import VideoDownloader
 import pytube
 
 

@@ -18,8 +18,9 @@
             "max_duration": 58,
             "max_comment_length": 150,
             "image_mode": "TEMPLATE",
-            "tts_mode": "DEFAULT",
+            "tts_mode": "ELEVEN_LABS",
             "subreddit": "askreddit",
+            "voice": "pNInz6obpgDQGcFmaJgB",
             "video": {
                 "bitrate": "16000k",
                 "threads": "24"

@@ -4,17 +4,19 @@ import praw
 from praw import Reddit
 from praw.models import Submission, Comment, MoreComments
 
-from content.tts.TextToSpeech import TTSMode, TextToSpeech
-from src.content.tts.SimpleTTS import SimpleTTS
+from tools.tts.ElevenLabsTTS import ElevenLabsTTS
+from tools.tts.TextToSpeech import TTSMode, TextToSpeech
+from tools.tts.SimpleTTS import SimpleTTS
 from content.types.reddit_ask.wrappers.RedditComment import RedditComment
 from content.types.reddit_ask.wrappers.RedditPost import RedditPost
 
 
 class PostFinder:
 
-    def __init__(self, credentials: Dict[str, str], subreddit: str, top_limit:int = 10, exclude_nsfw:bool = True, exclude_posts:List[str] = None):
+    def __init__(self, credentials: Dict[str, str], subreddit: str, top_limit:int = 10, exclude_nsfw:bool = True, exclude_posts:List[str] = None, voice_to_use: str = ""):
         if exclude_posts is None:
             exclude_posts = []
+        self.voice_to_use = voice_to_use
         self.credentials = credentials
         self.subreddit = subreddit
         self.limit = top_limit
@@ -40,7 +42,7 @@ class PostFinder:
             wrapped_comments.append(RedditComment(comment.id, comment.body, comment.author,
                                                   post.url, images_path, tts_path))
         used_comments, duration = get_used_comments(wrapped_post, wrapped_comments, max_duration,
-                                                    tts_type)
+                                                    tts_type, self.voice_to_use)
         return wrapped_post, used_comments, duration
 
     def get_reddit(self) -> Reddit:
@@ -51,18 +53,18 @@ class PostFinder:
         )
 
 
-def get_used_comments(post: RedditPost, comments: List[RedditComment], max_duration: int, tts_type: TTSMode) -> Tuple[List[RedditComment], int]:
+def get_used_comments(post: RedditPost, comments: List[RedditComment], max_duration: int, tts_type: TTSMode, voice_to_use: str) -> Tuple[List[RedditComment], int]:
     current_duration: int = 0
     used_comments: List[RedditComment] = []
 
     print("Creating text-to-speech files...")
-    tts: TextToSpeech = SimpleTTS(post.body, post.tts) if tts_type == TTSMode.DEFAULT else SimpleTTS(post.body, post.tts)
+    tts: TextToSpeech = ElevenLabsTTS(post.body, post.tts, voice_to_use) if tts_type == TTSMode.ELEVEN_LABS else SimpleTTS(post.body, post.tts)
     duration: int = tts.create().get_duration()
     post.set_duration(duration)
     current_duration += post.tts_duration
 
     for comment in comments:
-        tts = SimpleTTS(comment.body, comment.tts) if tts_type == TTSMode.DEFAULT else SimpleTTS(comment.body, comment.tts)
+        tts = ElevenLabsTTS(comment.body, comment.tts, voice_to_use) if tts_type == TTSMode.ELEVEN_LABS else SimpleTTS(comment.body, comment.tts)
         duration = tts.create().get_duration()
         if current_duration + duration > max_duration:
             break

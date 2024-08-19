@@ -4,6 +4,7 @@ import sys
 from typing import Any, Dict, TextIO
 
 from content.Content import ContentType
+import tools.tts.ElevenLabsTTS as ElTTS
 from content.types.reddit_ask.RedditAskContent import RedditAskContent
 
 def main():
@@ -13,6 +14,7 @@ def main():
 
     data: Dict[str, Any] = get_config(config["data_path"])
     secrets: Dict[str, Any] = get_config(config["secrets_path"])
+    distribute_secrets(secrets)
     try:
         choice: ContentType = ContentType[sys.argv[1]]
         print("Mode: " + choice.name)
@@ -38,6 +40,9 @@ def get_config(file: str) -> Dict[str, Any]:
     with open(file, "r") as f:
         config = json.load(f)
         return config
+
+def distribute_secrets(secrets: Dict[str, Any]):
+    ElTTS.set_key(secrets["ELEVEN_LABS"]["api_key"])
 
 if __name__ == '__main__':
     main()

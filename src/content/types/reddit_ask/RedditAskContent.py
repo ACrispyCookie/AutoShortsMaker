@@ -1,12 +1,12 @@
 from typing import Dict, Any, List
 
 from content.Content import ContentType
-from content.tts.TextToSpeech import TTSMode
+from tools.tts.TextToSpeech import TTSMode
 from content.types.reddit_ask.images.RedditImage import RedditImageMode
 from content.types.reddit_ask.wrappers.RedditComment import RedditComment
 from content.types.reddit_ask.wrappers.RedditPost import RedditPost
 from src.content.Content import Content
-import content.background.BackgroundVideoManager as Bvm
+import tools.background.BackgroundVideoManager as Bvm
 from content.types.reddit_ask.PostFinder import PostFinder
 from content.types.reddit_ask.images.RedditTemplate import RedditTemplate
 from content.types.reddit_ask.images.RedditScreenshot import RedditScreenshot
@@ -42,7 +42,8 @@ class RedditAskContent(Content):
          self.comments,
          self.duration) = (
             PostFinder(credentials=self.get_credentials(), subreddit=self.subreddit,
-                       exclude_posts=(self.data["posts"] if "posts" in self.data.keys() else []))
+                       exclude_posts=(self.data["posts"] if "posts" in self.data.keys() else []),
+                       voice_to_use=self.config["settings"]["voice"])
             .get(self.max_duration, self.max_comment_length, self.tts_mode, self.dirs["images"], self.dirs["tts"]))
 
         if "posts" in self.data.keys():

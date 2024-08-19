@@ -1,4 +1,4 @@
-from content.background.VideoDownloader import VideoDownloader
+from tools.background.VideoDownloader import VideoDownloader
 
 
 class QueryVideoDownloader(VideoDownloader):

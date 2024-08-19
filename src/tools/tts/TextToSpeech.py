@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 from enum import Enum
+from unittest.mock import DEFAULT
 
 from moviepy.audio.io.AudioFileClip import AudioFileClip
 

@@ -11,7 +11,7 @@ from moviepy.video.io.VideoFileClip import VideoFileClip
 from content.types.reddit_ask.wrappers.RedditComment import RedditComment
 from content.types.reddit_ask.wrappers.RedditPost import RedditPost
 
-marginSize = 150
+marginSize: int = 150
 
 
 class RedditVideoComposer:

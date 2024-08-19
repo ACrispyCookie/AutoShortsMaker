@@ -1,7 +1,7 @@
 import pyttsx3
 from pyttsx3 import Engine
 
-from src.content.tts.TextToSpeech import TextToSpeech
+from tools.tts.TextToSpeech import TextToSpeech
 
 class SimpleTTS(TextToSpeech):
 
@@ -10,7 +10,7 @@ class SimpleTTS(TextToSpeech):
         self.engine: Engine = engine_init()
         self.engine.save_to_file(self.content, self.filename)
 
-    def create(self):
+    def create(self) -> TextToSpeech:
         self.engine.runAndWait()
         return self
 

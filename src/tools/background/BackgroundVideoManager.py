@@ -3,7 +3,7 @@ import moviepy.video.fx.all as vfx
 import moviepy.editor as mp
 from moviepy.video.VideoClip import VideoClip
 
-from content.background.UrlVideoDownloader import UrlVideoDownloader
+from tools.background.UrlVideoDownloader import UrlVideoDownloader
 
 
 def get_first_video_name(folder: str) -> str:
