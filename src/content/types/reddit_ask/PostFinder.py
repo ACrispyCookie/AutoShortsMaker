@@ -2,7 +2,7 @@ from typing import Dict, List, Tuple
 
 import praw
 from praw import Reddit
-from praw.models import Submission, Comment
+from praw.models import Submission, Comment, MoreComments
 
 from content.tts.TextToSpeech import TTSMode, TextToSpeech
 from src.content.tts.SimpleTTS import SimpleTTS
@@ -56,13 +56,13 @@ def get_used_comments(post: RedditPost, comments: List[RedditComment], max_durat
     used_comments: List[RedditComment] = []
 
     print("Creating text-to-speech files...")
-    tts: TextToSpeech = SimpleTTS(post.body, str(post.id)) if tts_type == TTSMode.DEFAULT else SimpleTTS(post.body, str(post.id))
+    tts: TextToSpeech = SimpleTTS(post.body, post.tts) if tts_type == TTSMode.DEFAULT else SimpleTTS(post.body, post.tts)
     duration: int = tts.create().get_duration()
     post.set_duration(duration)
     current_duration += post.tts_duration
 
     for comment in comments:
-        tts = SimpleTTS(comment.body, str(comment.id)) if tts_type == TTSMode.DEFAULT else SimpleTTS(comment.body, str(comment.id))
+        tts = SimpleTTS(comment.body, comment.tts) if tts_type == TTSMode.DEFAULT else SimpleTTS(comment.body, comment.tts)
         duration = tts.create().get_duration()
         if current_duration + duration > max_duration:
             break
@@ -73,7 +73,11 @@ def get_used_comments(post: RedditPost, comments: List[RedditComment], max_durat
     return used_comments, current_duration
 
 
-def is_comment_valid(comment: Comment, max_comment_length: int) -> bool:
+def is_comment_valid(comment: Comment | MoreComments, max_comment_length: int) -> bool:
+    if type(comment) == MoreComments:
+        return False
+    if comment.author is None:
+        return False
     if comment.body == '[deleted]' or comment.body == '[removed]' or comment.body == '':
         return False
     if len(comment.body) > max_comment_length:

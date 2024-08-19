@@ -7,11 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d3141eb-db31-4e79-8f3a-1d38117d6fad" name="Changes" comment="Remove unused imports">
+    <list default="true" id="7d3141eb-db31-4e79-8f3a-1d38117d6fad" name="Changes" comment="More renaming">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/types/reddit_ask/RedditAskContent.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/RedditAskContent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/types/reddit_ask/images/RedditImage.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/images/RedditImage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/types/reddit_ask/PostFinder.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/PostFinder.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +159,7 @@
       <workItem from="1702245731675" duration="1403000" />
       <workItem from="1723993708035" duration="959000" />
       <workItem from="1724020832905" duration="3584000" />
-      <workItem from="1724025144336" duration="519000" />
+      <workItem from="1724025144336" duration="1297000" />
     </task>
     <task id="LOCAL-00001" summary="Fix out of range index">
       <option name="closed" value="true" />
@@ -202,7 +201,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724025297660</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="More renaming">
+      <option name="closed" value="true" />
+      <created>1724025692526</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1724025692526</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,11 +221,12 @@
     <MESSAGE value="Fix image template" />
     <MESSAGE value="More refactoring" />
     <MESSAGE value="Remove unused imports" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove unused imports" />
+    <MESSAGE value="More renaming" />
+    <option name="LAST_COMMIT_MESSAGE" value="More renaming" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/AutoShortsMaker$main.coverage" NAME="main Coverage Results" MODIFIED="1702018750171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/AutoShortsMaker$RandomRedditPost.coverage" NAME="RandomRedditPost Coverage Results" MODIFIED="1702018740826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/content/reddit" />
-    <SUITE FILE_PATH="coverage/AutoShortsMaker$main_py.coverage" NAME="main.py Coverage Results" MODIFIED="1724025482101" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/AutoShortsMaker$main_py.coverage" NAME="main.py Coverage Results" MODIFIED="1724026420833" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
