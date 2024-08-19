@@ -1,6 +1,11 @@
 from abc import ABC, abstractmethod
+from enum import Enum
 
 from content.types.reddit_ask.wrappers.RedditContent import RedditContent
+
+class RedditImageMode(Enum):
+    SCREENSHOT = 1
+    TEMPLATE = 2
 
 
 class RedditImage(ABC):

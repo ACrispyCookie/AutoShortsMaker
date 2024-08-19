@@ -3,7 +3,7 @@ from enum import Enum
 
 from moviepy.audio.io.AudioFileClip import AudioFileClip
 
-class TTSType(Enum):
+class TTSMode(Enum):
     DEFAULT = 1
     ELEVEN_LABS = 2
 

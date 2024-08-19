@@ -4,7 +4,7 @@ import praw
 from praw import Reddit
 from praw.models import Submission, Comment
 
-from content.tts.TextToSpeech import TTSType, TextToSpeech
+from content.tts.TextToSpeech import TTSMode, TextToSpeech
 from src.content.tts.SimpleTTS import SimpleTTS
 from content.types.reddit_ask.wrappers.RedditComment import RedditComment
 from content.types.reddit_ask.wrappers.RedditPost import RedditPost
@@ -22,7 +22,7 @@ class PostFinder:
         self.exclude_nsfw = exclude_nsfw
         self.exclude_posts = exclude_posts
 
-    def get(self, max_duration: int, max_comment_length: int, tts_type: TTSType, images_path: str, tts_path: str) -> Tuple[RedditPost, List[RedditComment], int]:
+    def get(self, max_duration: int, max_comment_length: int, tts_type: TTSMode, images_path: str, tts_path: str) -> Tuple[RedditPost, List[RedditComment], int]:
         reddit: Reddit = self.get_reddit()
         top_posts: List[Submission] = list(reddit.subreddit(self.subreddit).top(time_filter="day", limit=self.limit))
 
@@ -51,18 +51,18 @@ class PostFinder:
         )
 
 
-def get_used_comments(post: RedditPost, comments: List[RedditComment], max_duration: int, tts_type: TTSType) -> Tuple[List[RedditComment], int]:
+def get_used_comments(post: RedditPost, comments: List[RedditComment], max_duration: int, tts_type: TTSMode) -> Tuple[List[RedditComment], int]:
     current_duration: int = 0
     used_comments: List[RedditComment] = []
 
     print("Creating text-to-speech files...")
-    tts: TextToSpeech = SimpleTTS(post.body, str(post.id)) if tts_type == TTSType.DEFAULT else SimpleTTS(post.body, str(post.id))
+    tts: TextToSpeech = SimpleTTS(post.body, str(post.id)) if tts_type == TTSMode.DEFAULT else SimpleTTS(post.body, str(post.id))
     duration: int = tts.create().get_duration()
     post.set_duration(duration)
     current_duration += post.tts_duration
 
     for comment in comments:
-        tts = SimpleTTS(comment.body, str(comment.id)) if tts_type == TTSType.DEFAULT else SimpleTTS(comment.body, str(comment.id))
+        tts = SimpleTTS(comment.body, str(comment.id)) if tts_type == TTSMode.DEFAULT else SimpleTTS(comment.body, str(comment.id))
         duration = tts.create().get_duration()
         if current_duration + duration > max_duration:
             break

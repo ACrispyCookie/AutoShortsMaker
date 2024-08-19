@@ -1,7 +1,8 @@
 from typing import Dict, Any, List
 
 from content.Content import ContentType
-from content.tts.TextToSpeech import TTSType
+from content.tts.TextToSpeech import TTSMode
+from content.types.reddit_ask.images.RedditImage import RedditImageMode
 from content.types.reddit_ask.wrappers.RedditComment import RedditComment
 from content.types.reddit_ask.wrappers.RedditPost import RedditPost
 from src.content.Content import Content
@@ -23,8 +24,8 @@ class RedditAskContent(Content):
         self.subreddit: str = self.config["settings"]["subreddit"]
         self.max_duration: int = self.config["settings"]["max_duration"]
         self.max_comment_length: int = self.config["settings"]["max_comment_length"]
-        self.image_mode: str = self.config["settings"]["image_mode"]
-        self.tts_mode: TTSType = TTSType[self.config["settings"]["tts_mode"]]
+        self.image_mode: RedditImageMode = RedditImageMode[self.config["settings"]["image_mode"]]
+        self.tts_mode: TTSMode = TTSMode[self.config["settings"]["tts_mode"]]
 
     def create(self) -> None:
         if self.config["download_background"]["enabled"]:
@@ -52,7 +53,7 @@ class RedditAskContent(Content):
         self.save_data()
 
         print("Screenshotting post...")
-        if self.image_mode == "screenshot":
+        if self.image_mode == RedditImageMode.SCREENSHOT:
             RedditScreenshot(self.post).create()
             for comment in self.comments:
                 RedditScreenshot(comment).create()
