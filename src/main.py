@@ -11,6 +11,7 @@ def main():
     print("Starting shorts maker...")
     config: Dict[str, Any] = get_config("data/config.json")
     create_data_file(config["data_path"])
+    print("hello")
 
     data: Dict[str, Any] = get_config(config["data_path"])
     secrets: Dict[str, Any] = get_config(config["secrets_path"])

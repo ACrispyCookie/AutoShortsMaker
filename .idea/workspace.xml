@@ -8,20 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d3141eb-db31-4e79-8f3a-1d38117d6fad" name="Changes" comment="Fix small issue in post finder to avoid banned redditor comments">
-      <change afterPath="$PROJECT_DIR$/src/tools/tts/ElevenLabsTTS.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/AutoShortsMaker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AutoShortsMaker.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/secrets.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/secrets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/background/BackgroundVideoManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/tools/background/BackgroundVideoManager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/background/QueryVideoDownloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/tools/background/QueryVideoDownloader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/background/UrlVideoDownloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/tools/background/UrlVideoDownloader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/background/VideoDownloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/tools/background/VideoDownloader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/tts/ElevenLabsTTS.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/tts/SimpleTTS.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/tools/tts/SimpleTTS.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/tts/TextToSpeech.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/tools/tts/TextToSpeech.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/types/reddit_ask/PostFinder.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/PostFinder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/types/reddit_ask/RedditAskContent.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/RedditAskContent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/types/reddit_ask/video/RedditVideoComposer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/types/reddit_ask/video/RedditVideoComposer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,28 +52,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.RandomRedditPost.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.py.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Desktop/coding/Other projects/AutoShortsMaker&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.RandomRedditPost.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.main.py.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/mikekoloniaris/Desktop/AutoShortsMaker",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Desktop\coding\Other projects\AutoShortsMaker\src\tools" />
@@ -104,7 +93,6 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.12 (AutoShortsMaker)" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -172,6 +160,7 @@
       <workItem from="1723993708035" duration="959000" />
       <workItem from="1724020832905" duration="3584000" />
       <workItem from="1724025144336" duration="4932000" />
+      <workItem from="1724577313798" duration="138000" />
     </task>
     <task id="LOCAL-00001" summary="Fix out of range index">
       <option name="closed" value="true" />
